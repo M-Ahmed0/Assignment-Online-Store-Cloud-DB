@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Online-Store-Cloud-DB.props" />
+</Project>
