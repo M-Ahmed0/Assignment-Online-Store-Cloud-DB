@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.interfaces
 {
-    public interface IEntityBase
+    public abstract class EntityBase
     {
-        int Id { get; set; }
+        string Id { get; set; }
     }
 }

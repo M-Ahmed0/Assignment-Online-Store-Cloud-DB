@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class EntityBaseRepository<T> : IBaseRepository<T> where T : class, IEntityBase, new()
+    public class EntityBaseRepository<T> : IBaseRepository<T> where T : EntityBase, new()
     {
         private readonly ApplicationDbContext _context;
 

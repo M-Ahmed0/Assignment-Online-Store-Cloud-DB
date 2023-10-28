@@ -17,9 +17,9 @@ namespace DAL.Repositories
             _context = context; 
         }
 
-        public async Task<IEnumerable<Order>> GetOrdersByUserId(int userId)
+        public async Task<IEnumerable<Order>> GetOrdersByUserId(string userId)
         {
-            return await _context.Orders.Where(o => o.User.Id == userId).ToListAsync();
+            return await _context.Orders.Where(o => o.UserId == userId).ToListAsync();
         }
     }
 }

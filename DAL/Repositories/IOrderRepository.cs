@@ -10,7 +10,7 @@ namespace DAL.Repositories
     public interface IOrderRepository : IBaseRepository<Order>
     {
 
-        Task<IEnumerable<Order>> GetOrdersByUserId(int userId);
+        Task<IEnumerable<Order>> GetOrdersByUserId(string userId);
 
 
     }
