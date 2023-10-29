@@ -53,7 +53,7 @@ namespace DAL
                         Price = 100.50,
                         Stock = 10,
                         Description = "Description for product 1",
-                        ImageUrl = "url/to/image1.jpg"
+                        Filename = "url/to/image1.jpg"
                     },
                     new Product
                     
@@ -62,7 +62,7 @@ namespace DAL
                         Price = 200.25,
                         Stock = 5,
                         Description = "Description for product 2",
-                        ImageUrl = "url/to/image2.jpg"
+                        Filename = "url/to/image2.jpg"
                     }
                 };
 
@@ -101,7 +101,7 @@ namespace DAL
                 var order = new Order
                 {
                     Id = Guid.NewGuid().ToString(),
-                    PartitionKey = "123PartitionKey",
+                    PartitionKey = user.Id,
                     OrderDate = DateTime.Now,
                     Status = OrderStatus.Placed,
                     UserId = user.Id,

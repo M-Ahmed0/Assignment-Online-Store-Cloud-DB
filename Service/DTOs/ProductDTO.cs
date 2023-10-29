@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,10 @@ namespace Service.DTOs
         public string Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public bool InStock { get; set; } // Indicates whether the product is in stock or not.
+        public bool InStock { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public string Filename { get; set; }
+        public IFormFile ImageFile { get; set; }
+
     }
 }

@@ -8,7 +8,9 @@ namespace Domain.Entities
 {
     public enum OrderStatus
     {
-        Placed,     
+        processing,
+        Failed,
+        Placed,
         Shipped   
     }
 }

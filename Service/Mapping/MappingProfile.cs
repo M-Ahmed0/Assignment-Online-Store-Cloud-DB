@@ -15,6 +15,11 @@ namespace Service.Mapping
         {
             
             CreateMap<Order, OrderDTO>();
+            CreateMap<OrderDTO, Order>();
+              //  .ForMember(dest => dest.PartitionKey, opt => opt.MapFrom(src => src.UserId));
+
+            CreateMap<OrderCreationDTO, Order>();
+
 
             CreateMap<Product, ProductDTO>();
                                   
@@ -22,7 +27,7 @@ namespace Service.Mapping
             //CreateMap<UserDTO, User>();
 
             CreateMap<Review, ReviewDTO>();
-            //CreateMap<ReviewDTO, Review>();
+            CreateMap<ReviewDTO, Review>();
         }
     }
 }

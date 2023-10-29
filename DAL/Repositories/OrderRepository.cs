@@ -21,5 +21,34 @@ namespace DAL.Repositories
         {
             return await _context.Orders.Where(o => o.UserId == userId).ToListAsync();
         }
+
+        public async Task<Order> GetSingleWithPartitionKey(string id, string userId)
+        {
+            return await _context.Orders.AsNoTracking().FirstOrDefaultAsync(o => o.Id == id && o.PartitionKey == userId);
+        }
+
+        public async Task UpdateOrderStatus(string orderId, OrderStatus status)
+        {
+            var order = await _context.Orders.FindAsync(orderId);
+            if (order != null)
+            {
+                order.Status = status;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateOrderStatus(string orderId, string userId, OrderStatus status)
+        {
+            var order = await _context.Orders
+                                      .Where(o => o.Id == orderId && o.PartitionKey == userId)
+                                      .SingleOrDefaultAsync();
+
+            if (order != null)
+            {
+                order.Status = status;
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }

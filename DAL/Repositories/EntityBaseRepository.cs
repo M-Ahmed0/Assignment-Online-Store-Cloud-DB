@@ -28,15 +28,23 @@ namespace DAL.Repositories
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task Add(T entity)
+        public virtual async Task<T> GetSingleWithPartitionKey(string id, string partitionKey)
         {
-            await _context.Set<T>().AddAsync(entity);
+            throw new NotImplementedException();
         }
 
-        public void Update(string id, T entity)
+        public async Task Add(T entity)
+        {
+             _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Update(string id, T entity)
         {
             _context.Set<T>().Update(entity);
+            await _context.SaveChangesAsync();
         }
+
 
         public async Task Delete(string id)
         {

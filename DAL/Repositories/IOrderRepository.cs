@@ -11,7 +11,9 @@ namespace DAL.Repositories
     {
 
         Task<IEnumerable<Order>> GetOrdersByUserId(string userId);
+        Task UpdateOrderStatus(string orderId, OrderStatus status);
 
+        Task<Order> GetSingleWithPartitionKey(string orderId, string userId);
 
     }
 }

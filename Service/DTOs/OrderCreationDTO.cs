@@ -7,20 +7,13 @@ using System.Threading.Tasks;
 
 namespace Service.DTOs
 {
-    public class OrderDTO
+    public class OrderCreationDTO
     {
-        public string Id { get; set; }
-        public string PartitionKey { get; set; }
-        public DateTime OrderDate { get; set; }
         public DateTime? ShippingDate { get; set; }
         public OrderStatus Status { get; set; }
         public ShippingAddress ShippingAddress { get; set; }
-
- 
         public string UserId { get; set; }
-
-        // List of products associated with the order.
-        public List<string> ProductIds { get; set; } = new List<string>();
+        public Dictionary<string, int> ProductQuantities { get; set; }
     }
 
 }
